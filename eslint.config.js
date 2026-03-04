@@ -1,26 +1,41 @@
-import js from "@eslint/js";
-import { defineConfig } from "eslint/config";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
-import simpleImportSort from "eslint-plugin-simple-import-sort";
-import globals from "globals";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js'
+import { defineConfig } from 'eslint/config'
+import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: { js },
-    extends: ["js/recommended"],
-    languageOptions: { globals: globals.node }
-  },
-  tseslint.configs.recommended,
-  eslintConfigPrettier,
-  {
-    plugins: {
-      "simple-import-sort": simpleImportSort
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: globals.node,
     },
     rules: {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error"
-    }
-  }
-]);
+      semi: ['error', 'never'],
+    },
+  },
+
+  ...tseslint.configs.recommended,
+
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/semi': ['error', 'never'],
+    },
+  },
+
+  eslintConfigPrettier,
+
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
+  },
+])
