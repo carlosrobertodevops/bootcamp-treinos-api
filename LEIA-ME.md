@@ -1,23 +1,224 @@
 # Bootcamp-treinos-api
 
-## aula 0
+## 1. INTRODUÇÃO
 
-## aula 1
+### 1.1. Aula 0: Setup do Projeto
 
-## aula 2
+### 1.1.1 Node 24
 
-## aula 3
+> Instalação do Node
 
-## aula 4
+```bash
+nvm install 24
+```
 
-## aula 5
+> usar o node 24 como padrão
 
-## aula 6
+```bash
+nvm use 24
+```
 
-## aula 7
+> Instalação do pnpm
 
-## aula 8
+```bash
+npm install pnpm  -y
+```
 
-## aula 9
+### 1.1.2. Typescript
 
-## aula 10
+> Dependências de Dev no Node (atentar para as verses)
+
+```bash
+pnpm add -D typescript@5.9.3 @types/node@24
+```
+
+```bash
+pnpm add -D prettier@3.8.1 eslint@9.39.2
+```
+
+> Configurar o Typescript
+
+```bash
+npx tsc --init
+```
+
+- Apagar os comentários do tsconfig.json gerado pelo comando acima
+- Deixar no padrão abaixo
+
+```js
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2024",
+    "skipLibCheck": true,
+    "strict": true,
+    "allowJs": true,
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}
+```
+
+- Servidor TSX com Hot relood
+
+```bash
+pnpm add -D tsx@4.21.0
+```
+
+- Padronizar com script '"dev": "tsx watch src/index.ts"', dentro do 'package.json'
+
+```js
+{
+  "name": "bootcamp-treinos-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.0",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "24",
+    "eslint": "9.39.2",
+    "globals": "^17.4.0",
+    "prettier": "3.8.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
+```
+
+- testar com "pnpm run dev"
+
+### 1.1.3. Criando os Commits
+
+> Criação de Commits padronizados "Conventional Commits"
+
+- fix: (corrigir erros)
+- feat: (para feactures)
+- chore: (grandes implementações)
+- outros como build: , ci: , docs: , style: , refactor: , perf: , test: , entre outros
+
+```bash
+git add .
+git commit -m "chore: add typescript and tsx setup "
+```
+
+> Observações ()
+
+- Para evitar conflito de versões do NODE com sua equipe de Dev, coloque abaixo do objetvo "scrips:" do package.json
+
+```js
+"engine": {
+    "node": "24"
+},
+```
+
+- Criar um arquivo ".npmrc" na raiz do projeto para controlar erros de versões e coloque "engine-strict=true"
+
+```js
+engine-strict=true
+```
+
+### 1.1.4. Configurar os controles de códigos: ESLint e Prettier
+
+> ESLint
+
+- Usado para verificar sintaxe e problemas no código
+
+```bash
+pnpm create @eslint/config@1.11.0
+```
+
+- Respostas da Opções após o comando acima:
+  - [x] Javascript
+  - [x] Javacript modules (import/export)
+  - [x] None of these
+  - [x] yes
+  - [x] Node
+  - [x] Javascript
+  - [x] Yes
+  - [x] pnpm
+
+- instalar no seu VS Code ou Cursor a extenção/plugin "ESLint"
+
+- Ficará assim o arquivo "eslint.config.js":
+
+```js
+import js from '@eslint/js'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+import { defineConfig } from 'eslint/config'
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: globals.node,
+    },
+    rules: {
+      semi: ['error', 'never'],
+    },
+  },
+
+  tseslint.configs.recommended,
+])
+```
+
+> Prettier
+
+- Faz todas as formatações em nosso código após salvar os mesmos: indentação e etc;
+- Instalar no VS Code ou Cursor à extenção/plugin "Prettier - Code formatter"
+
+> ESLint + Prettier (eslint config prettier)
+
+- [Link Git do eslint config prettier)](https://github.com/prettier/eslint-config-prettier)
+
+```bash
+pnpm add eslint-config-prettier@10.1.8
+```
+
+> Criar o diretório e arquivo "/.vscode/setting.json"
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",ß
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  }
+}
+```
+
+### 1.1.5. Frameworks Backend
+
+#### 1.1.5.1. express
+
+#### 1.1.5.2. fastify (padrão em nosso App)
+
+> Instalação da versão 5.7.4 (usada no Bootcamp)
+
+```bash
+pnpm add fastify@5.7.4
+```
+
+#### 1.1.5.3 nestjs
+
+## 2. DESENVOLVIMENTO
+
+## 2.1 AULA 1
+
+## AULA 2
+
+## AULA 3
+
+## III. CONCLUSÃO

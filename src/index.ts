@@ -9,7 +9,7 @@ const fastify = Fastify({
 
 // Declare a route
 fastify.get('/', async function handler() {
-  return { hello: 'world' }
+  return { hello: 'Hello World' }
 })
 
 // Run the server!
