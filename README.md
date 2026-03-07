@@ -227,6 +227,14 @@ export default defineConfig([
 }
 ```
 
+> Git Commit
+
+```bash
+git add .
+git commit -m "chore: add eslint and prettier setup"
+
+```
+
 > Prettier
 
 - Faz todas as formatações em nosso código após salvar os mesmos: indentação e etc;
@@ -234,17 +242,27 @@ export default defineConfig([
 
 > ESLint + Prettier (eslint config prettier)
 
-- [Link Git do eslint config prettier)](https://github.com/prettier/eslint-config-prettier)
+- [Link Git do eslint config prettier](https://github.com/prettier/eslint-config-prettier)
 
 ```bash
-pnpm add eslint-config-prettier@10.1.8
+pnpm add -D eslint-config-prettier@10.1.8
 ```
 
 ### 1.1.5. Frameworks Backend
 
 #### 1.1.5.1. express
 
+- mais lento
+- desatualizado e com poucas feactures
+- não opnativo
+
 #### 1.1.5.2. fastify (padrão em nosso App)
+
+- [Link do Fastify](https://www.fastify.io)
+
+- mais moderno
+- mais rápido
+- pouco opnativo
 
 > Instalação da versão 5.7.4 (usada no Bootcamp)
 
@@ -252,7 +270,10 @@ pnpm add eslint-config-prettier@10.1.8
 pnpm add fastify@5.7.4
 ```
 
-#### 1.1.5.3 nestjs
+#### 1.1.5.3. NEST
+
+- muito opnativo
+- muito complexo e com poucas feactures
 
 ## 2. DESENVOLVIMENTO
 
