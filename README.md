@@ -270,11 +270,6 @@ pnpm add -D eslint-config-prettier@10.1.8
 pnpm add fastify@5.7.4
 ```
 
-❯ git add .  
-(base)
-bootcamp-treinos-api on  master [+⇡] is 📦 v1.0.0 via  v24.14.0 on  aws us-east-1
-❯ git commit -m "feat: add fastify api"
-
 > Git Commit
 
 ```bash
@@ -302,6 +297,68 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 ```
+
+- "arquivo index.ts" final
+
+```ts
+import 'dotenv/config'
+
+import Fastify from 'fastify'
+import type { ZodTypeProvider } from 'fastify-type-provider-zod'
+import {
+  serializerCompiler,
+  validatorCompiler,
+} from 'fastify-type-provider-zod'
+import { z } from 'zod'
+const app = Fastify({
+  logger: true,
+})
+
+app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler)
+
+app.withTypeProvider<ZodTypeProvider>().route({
+  method: 'GET',
+  url: '/',
+
+  schema: {
+    description: 'Hello World',
+    tags: ['hello-world'],
+    response: {
+      200: z.object({
+        message: z.string(),
+      }),
+    },
+  },
+  handler: () => {
+    return { message: 'Hello World' }
+  },
+})
+
+try {
+  await app.listen({ port: Number(process.env.PORT) || 3000 })
+} catch (err) {
+  app.log.error(err)
+  process.exit(1)
+}
+```
+
+> Git Commit
+
+```bash
+git add .
+git commit -m "chore: add zod and fastify-type-provider-zod setup"
+```
+
+### 1.7. Swagger
+
+> Instalação de libs swagger no fastify
+
+```bash
+pnpm add @fastify/swagger@9.7.0 @fastify/swagger-ui@5.2.5
+```
+
+### 1.8
 
 ## 2. DESENVOLVIMENTO
 
