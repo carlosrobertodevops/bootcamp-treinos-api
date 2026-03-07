@@ -358,6 +358,16 @@ git commit -m "chore: add zod and fastify-type-provider-zod setup"
 pnpm add @fastify/swagger@9.7.0 @fastify/swagger-ui@5.2.5
 ```
 
+> Git Commit
+
+```bash
+git add .
+git commit -m "chore: add fastify swagger"
+```
+
+git add .
+git commit -m "chore: add swagger setup"
+
 ### 1.8
 
 ## 2. DESENVOLVIMENTO
