@@ -24,7 +24,7 @@ nvm use 24
 npm install pnpm  -y
 ```
 
-### 1.1.2. Typescript
+### 1.2. Typescript
 
 > Dependências de Dev no Node (atentar para as verses)
 
@@ -97,7 +97,7 @@ pnpm add -D tsx@4.21.0
 
 - testar com "pnpm run dev"
 
-### 1.1.3. Criando os Commits
+### 1.3. Criando os Commits
 
 > Criação de Commits padronizados "Conventional Commits"
 
@@ -127,7 +127,7 @@ git commit -m "chore: add typescript and tsx setup "
 engine-strict=true
 ```
 
-### 1.1.4. Configurar os controles de códigos: ESLint e Prettier
+### 1.4. Configurar os controles de códigos: ESLint e Prettier
 
 > ESLint
 
@@ -248,15 +248,15 @@ git commit -m "chore: add eslint and prettier setup"
 pnpm add -D eslint-config-prettier@10.1.8
 ```
 
-### 1.1.5. Frameworks Backend
+### 1.5. Frameworks Backend
 
-#### 1.1.5.1. express
+#### 1.5.1. express
 
 - mais lento
 - desatualizado e com poucas feactures
 - não opnativo
 
-#### 1.1.5.2. fastify (padrão em nosso App)
+#### 1.5.2. fastify (padrão em nosso App)
 
 - [Link do Fastify](https://www.fastify.io)
 
@@ -270,10 +270,38 @@ pnpm add -D eslint-config-prettier@10.1.8
 pnpm add fastify@5.7.4
 ```
 
-#### 1.1.5.3. NEST
+❯ git add .  
+(base)
+bootcamp-treinos-api on  master [+⇡] is 📦 v1.0.0 via  v24.14.0 on  aws us-east-1
+❯ git commit -m "feat: add fastify api"
+
+> Git Commit
+
+```bash
+git add .
+git commit -m "feat: add fastify api"
+
+```
+
+#### 1.5.3. NEST
 
 - muito opnativo
 - muito complexo e com poucas feactures
+
+### 1.6. Zod
+
+> Instalação do Zed junto com Provider do Fastify
+
+```bash
+pnpm add -D zod@4.3.6 fastify-type-provider-zodfastify-type-provider-zod@6.1.0
+```
+
+```ts
+import {
+  serializerCompiler,
+  validatorCompiler,
+} from 'fastify-type-provider-zod'
+```
 
 ## 2. DESENVOLVIMENTO
 
