@@ -174,6 +174,59 @@ export default defineConfig([
 ])
 ```
 
+- eslint-plugin-simples-sort (dependência de dev)
+  [link do ithub do eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
+
+```bash
+pnpm add -D eslint-plugin-simple-import-sort@12.1.1
+```
+
+- ajustes no eslint.config.js
+
+```js
+import js from '@eslint/js'
+import { defineConfig } from 'eslint/config'
+import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+
+  tseslint.configs.recommended,
+  eslintConfigPrettier,
+  {
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+    },
+  },
+])
+```
+
+> Criar o diretório e arquivo "/.vscode/setting.json"
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  }
+}
+```
+
 > Prettier
 
 - Faz todas as formatações em nosso código após salvar os mesmos: indentação e etc;
@@ -185,18 +238,6 @@ export default defineConfig([
 
 ```bash
 pnpm add eslint-config-prettier@10.1.8
-```
-
-> Criar o diretório e arquivo "/.vscode/setting.json"
-
-```json
-{
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",ß
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
-  }
-}
 ```
 
 ### 1.1.5. Frameworks Backend
