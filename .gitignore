@@ -1,4 +1,4 @@
-.env
-.git
-dist
+.env.local
+.git/
+dist/
 node_modules/
