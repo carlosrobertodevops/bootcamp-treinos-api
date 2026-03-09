@@ -377,6 +377,8 @@ git add .
 git commit -m "chore: add prisma ORM"
 ```
 
+### 1.8
+
 ## 2. DESENVOLVIMENTO
 
 ## 2.1 AULA 1
