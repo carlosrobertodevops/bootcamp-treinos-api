@@ -4,7 +4,7 @@
 
 ### 1.1. Aula 0: Setup do Projeto
 
-### 1.1.1 Node 24
+### 1.2. Node 24
 
 > Instalação do Node
 
@@ -24,7 +24,7 @@ nvm use 24
 npm install pnpm  -y
 ```
 
-### 1.2. Typescript
+### 1.3. Typescript
 
 > Dependências de Dev no Node (atentar para as verses)
 
@@ -97,7 +97,7 @@ pnpm add -D tsx@4.21.0
 
 - testar com "pnpm run dev"
 
-### 1.3. Criando os Commits
+### 1.4. Criando os Commits
 
 > Criação de Commits padronizados "Conventional Commits"
 
@@ -127,7 +127,7 @@ git commit -m "chore: add typescript and tsx setup "
 engine-strict=true
 ```
 
-### 1.4. Configurar os controles de códigos: ESLint e Prettier
+### 1.5. Configurar os controles de códigos: ESLint e Prettier
 
 > ESLint
 
@@ -173,7 +173,7 @@ export default defineConfig([
 ```
 
 - eslint-plugin-simples-sort (dependência de dev)
-[link do ithub do eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
+  [link do ithub do eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
 
 ```bash
 pnpm add -D eslint-plugin-simple-import-sort@12.1.1
@@ -246,15 +246,15 @@ git commit -m "chore: add eslint and prettier setup"
 pnpm add -D eslint-config-prettier@10.1.8
 ```
 
-### 1.5. Frameworks Backend
+### 1.6. Frameworks Backend
 
-#### 1.5.1. express
+#### 1.6.1. express
 
 - mais lento
 - desatualizado e com poucas feactures
 - não opnativo
 
-#### 1.5.2. fastify (padrão em nosso App)
+#### 1.6.2. fastify (padrão em nosso App)
 
 - [Link do Fastify](https://www.fastify.io)
 - mais moderno
@@ -275,12 +275,12 @@ git commit -m "feat: add fastify api"
 
 ```
 
-#### 1.5.3. NEST
+#### 1.6.3. NEST
 
 - muito opnativo
 - muito complexo e com poucas feactures
 
-### 1.6. Zod
+### 1.7. Zod
 
 > Instalação do Zed junto com Provider do Fastify
 
@@ -347,7 +347,7 @@ git add .
 git commit -m "chore: add zod and fastify-type-provider-zod setup"
 ```
 
-### 1.7. Swagger
+### 1.8. Swagger
 
 > Instalação de libs swagger no fastify
 
@@ -362,10 +362,20 @@ git add .
 git commit -m "chore: add fastify swagger"
 ```
 
-git add .
-git commit -m "chore: add swagger setup"
+### 1.7. Prisma
 
-### 1.8
+> Instalação do prisma
+
+```bash
+pnpm add prisma@7.4.0 @prisma/client@7.4.0 @prisma/adapter-pg@7.4.0
+```
+
+> Git Commit
+
+```bash
+git add .
+git commit -m "chore: add prisma ORM"
+```
 
 ## 2. DESENVOLVIMENTO
 
@@ -376,4 +386,3 @@ git commit -m "chore: add swagger setup"
 ## AULA 3
 
 ## III. CONCLUSÃO
-

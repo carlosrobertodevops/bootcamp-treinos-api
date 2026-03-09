@@ -8,15 +8,13 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { z } from 'zod'
+
 const app = Fastify({
   logger: true,
 })
 
 import { fastifySwagger } from '@fastify/swagger'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
-
-app.setValidatorCompiler(validatorCompiler)
-app.setSerializerCompiler(serializerCompiler)
 
 await app.register(fastifySwagger, {
   openapi: {
@@ -39,6 +37,9 @@ await app.register(fastifySwagger, {
 await app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
+
+app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler)
 
 app.withTypeProvider<ZodTypeProvider>().route({
   method: 'GET',
