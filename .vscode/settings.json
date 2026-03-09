@@ -1,11 +1,13 @@
 {
-	"editor.fontFamily": "\"FiraCode Nerd Font\"",
-	"editor.tabSize": 2,
-	"editor.fontSize": 12,
-	"editor.renderWhitespace": "all",
-	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "always"
-	}
+  "editor.fontFamily": "\"FiraCode Nerd Font Mono Light\"",
+  "editor.tabSize": 2,
+  "editor.fontSize": 12,
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "shadcn.licenseKey": "0622300C-AE92-445E-9E0F-AF03F92F4F10",
+  "shadcn.licenseEmail": "enroberto2011@gmail.com"
 }

@@ -138,17 +138,15 @@ pnpm create @eslint/config@1.11.0
 ```
 
 - Respostas da Opções após o comando acima:
-  - [x] Javascript
-  - [x] Javacript modules (import/export)
-  - [x] None of these
-  - [x] yes
-  - [x] Node
-  - [x] Javascript
-  - [x] Yes
-  - [x] pnpm
-
+  - Javascript
+  - Javacript modules (import/export)
+  - None of these
+  - yes
+  - Node
+  - Javascript
+  - Yes
+  - pnpm
 - instalar no seu VS Code ou Cursor a extenção/plugin "ESLint"
-
 - Ficará assim o arquivo "eslint.config.js":
 
 ```js
@@ -175,7 +173,7 @@ export default defineConfig([
 ```
 
 - eslint-plugin-simples-sort (dependência de dev)
-  [link do ithub do eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
+[link do ithub do eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
 
 ```bash
 pnpm add -D eslint-plugin-simple-import-sort@12.1.1
@@ -259,7 +257,6 @@ pnpm add -D eslint-config-prettier@10.1.8
 #### 1.5.2. fastify (padrão em nosso App)
 
 - [Link do Fastify](https://www.fastify.io)
-
 - mais moderno
 - mais rápido
 - pouco opnativo
@@ -288,7 +285,7 @@ git commit -m "feat: add fastify api"
 > Instalação do Zed junto com Provider do Fastify
 
 ```bash
-pnpm add -D zod@4.3.6 fastify-type-provider-zodfastify-type-provider-zod@6.1.0
+pnpm add -D zod@4.3.6 fastify-type-provider-zod@6.1.0
 ```
 
 ```ts
@@ -379,3 +376,4 @@ git commit -m "chore: add swagger setup"
 ## AULA 3
 
 ## III. CONCLUSÃO
+
