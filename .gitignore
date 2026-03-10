@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 .env*
 .git/
+=======
+\
+.env
+.env.local
+>>>>>>> 143ea2c2267190aa3c50947d26efc35a3e137624
 dist/
 node_modules/
