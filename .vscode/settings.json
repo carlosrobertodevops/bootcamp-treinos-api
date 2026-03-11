@@ -9,5 +9,10 @@
     "source.fixAll.eslint": "always"
   },
   "shadcn.licenseKey": "0622300C-AE92-445E-9E0F-AF03F92F4F10",
+<<<<<<< HEAD
   "shadcn.licenseEmail": "tenroberto2011@gmail.com"
+=======
+  "shadcn.licenseEmail": "enroberto2011@gmail.com",
+  "peacock.color": "#832561"
+>>>>>>> a04ec6b (chore: add .env and .env.local and .gitgnore adjusts)
 }
