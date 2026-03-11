@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 .env*
-.git/
-=======
-\
-.env
-.env.local
->>>>>>> 143ea2c2267190aa3c50947d26efc35a3e137624
-=======
-.env*
->>>>>>> a04ec6b (chore: add .env and .env.local and .gitgnore adjusts)
-dist/
-node_modules/
+dist
+node_modules
