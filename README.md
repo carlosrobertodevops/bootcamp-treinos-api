@@ -367,7 +367,9 @@ git commit -m "chore: add fastify swagger"
 > Instalação do prisma
 
 ```bash
-pnpm add prisma@7.4.0 @prisma/client@7.4.0 @prisma/adapter-pg@7.4.0
+pnpm add @prisma/client@7.4.0 @prisma/adapter-pg@7.4.0
+pnpm add -D prisma@7.4.0
+
 ```
 
 > Git Commit
