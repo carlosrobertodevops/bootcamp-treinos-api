@@ -6,13 +6,20 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "explicit"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "shadcn.licenseKey": "0622300C-AE92-445E-9E0F-AF03F92F4F10",
-<<<<<<< HEAD
   "shadcn.licenseEmail": "tenroberto2011@gmail.com"
-=======
-  "shadcn.licenseEmail": "enroberto2011@gmail.com",
-  "peacock.color": "#832561"
->>>>>>> a04ec6b (chore: add .env and .env.local and .gitgnore adjusts)
 }
