@@ -8,7 +8,6 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
-import { z } from 'zod'
 
 const app = Fastify({
   logger: true,
@@ -16,12 +15,13 @@ const app = Fastify({
 
 import fastifyCors from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
-import { fastifySwaggerUi } from '@fastify/swagger-ui'
+import fastifyApiReference from '@scalar/fastify-api-reference'
 
+const SERVER_URL = process.env.SERVER_URL
 const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL
 
-if (!BETTER_AUTH_URL) {
-  throw new Error('BETTER_AUTH_URL environment variable is not defined')
+if (!SERVER_URL) {
+  throw new Error('SERVER_URL environment variable is not defined')
 }
 
 await app.register(fastifySwagger, {
@@ -34,7 +34,7 @@ await app.register(fastifySwagger, {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: SERVER_URL,
         description: 'Localhost server',
       },
     ],
@@ -42,9 +42,31 @@ await app.register(fastifySwagger, {
   transform: jsonSchemaTransform,
 })
 
-await app.register(fastifySwaggerUi, {
+// await app.register(fastifySwaggerUi, {
+//   routePrefix: '/docs',
+// })
+
+await app.register(fastifyApiReference, {
   routePrefix: '/docs',
+  configuration: {
+    sources: [
+      {
+        title: 'Bootcamp Treinos API',
+        slug: 'bootcamp-treinos-api',
+        url: '/swagger.json',
+      },
+      {
+        title: 'Auth API',
+        slug: 'auth-api',
+        url: '/api/auth/open-api/generate-schema',
+      },
+    ],
+  },
 })
+
+if (!BETTER_AUTH_URL) {
+  throw new Error('BETTER_AUTH_URL environment variable is not defined')
+}
 
 await app.register(fastifyCors, {
   origin: [BETTER_AUTH_URL],
@@ -55,18 +77,12 @@ app.setSerializerCompiler(serializerCompiler)
 
 app.withTypeProvider<ZodTypeProvider>().route({
   method: 'GET',
-  url: '/',
+  url: '/swagger.json',
   schema: {
-    description: 'Hello World',
-    tags: ['hello-world'],
-    response: {
-      200: z.object({
-        message: z.string(),
-      }),
-    },
+    hide: true,
   },
-  handler: () => {
-    return { message: 'Hello World' }
+  handler: async () => {
+    return app.swagger()
   },
 })
 

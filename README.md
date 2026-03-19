@@ -379,7 +379,9 @@ git add .
 git commit -m "chore: add prisma ORM"
 ```
 
-### 1.8
+### 1.8. better-auth
+
+### 1.9. Scalar
 
 ## 2. DESENVOLVIMENTO
 
