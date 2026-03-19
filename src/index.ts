@@ -18,6 +18,12 @@ import fastifyCors from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
 
+const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL
+
+if (!BETTER_AUTH_URL) {
+  throw new Error('BETTER_AUTH_URL environment variable is not defined')
+}
+
 await app.register(fastifySwagger, {
   openapi: {
     openapi: '3.0.0',
@@ -41,7 +47,7 @@ await app.register(fastifySwaggerUi, {
 })
 
 await app.register(fastifyCors, {
-  origin: ['http://localhost:3000'],
+  origin: [BETTER_AUTH_URL],
 })
 
 app.setValidatorCompiler(validatorCompiler)
@@ -64,7 +70,6 @@ app.withTypeProvider<ZodTypeProvider>().route({
   },
 })
 
-// Register authentication endpoint
 app.route({
   method: ['GET', 'POST'],
   url: '/api/auth/*',
@@ -91,7 +96,7 @@ app.route({
       response.headers.forEach((value, key) => reply.header(key, value))
       reply.send(response.body ? await response.text() : null)
     } catch (error) {
-      app.log.error('Authentication Error:')
+      app.log.error(error)
       reply.status(500).send({
         error: 'Internal authentication error',
         code: 'AUTH_FAILURE',
