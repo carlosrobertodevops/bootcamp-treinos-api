@@ -29,6 +29,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "shadcn.licenseKey": "{env:LICENSE_SS_KEY}",
-  "shadcn.licenseEmail": "{env:LICENSE_SS_EMAIL}"
+  "shadcn.licenseKey": "${LICENSE_KEY}",
+  "shadcn.licenseEmail": "${EMAIL}"
 }
