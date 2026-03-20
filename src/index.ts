@@ -1,6 +1,8 @@
 import 'dotenv/config'
-import { auth } from './lib/auth.js'
 
+import fastifyCors from '@fastify/cors'
+import { fastifySwagger } from '@fastify/swagger'
+import fastifyApiReference from '@scalar/fastify-api-reference'
 import Fastify from 'fastify'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import {
@@ -9,13 +11,11 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 
+import { auth } from './lib/auth.js'
+
 const app = Fastify({
   logger: true,
 })
-
-import fastifyCors from '@fastify/cors'
-import { fastifySwagger } from '@fastify/swagger'
-import fastifyApiReference from '@scalar/fastify-api-reference'
 
 const SERVER_URL = process.env.SERVER_URL
 const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL
