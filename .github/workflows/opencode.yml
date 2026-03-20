@@ -29,5 +29,6 @@ jobs:
         uses: anomalyco/opencode/github@latest
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          CONTEXT7_API_KEY: ${{ secrets.CONTEXT7_API_KEY }}
         with:
           model: opencode/gpt-5.3-codex
