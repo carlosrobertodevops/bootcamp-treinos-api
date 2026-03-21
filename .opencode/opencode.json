@@ -1,6 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
+    "figma-desktop": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp",
+      "enabled": true
+    },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
@@ -8,11 +13,6 @@
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       }
-    },
-    "Figma Desktop": {
-      "type": "local",
-      "url": "http://127.0.0.1:3845/mcp",
-      "headers": {}
     }
   },
   "instructions": ["/Users/carlosroberto/.config/opencode/rules/*.md"]
