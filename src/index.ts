@@ -1,8 +1,7 @@
-import 'dotenv/config'
-
 import fastifyCors from '@fastify/cors'
 import { fastifySwagger } from '@fastify/swagger'
 import fastifyApiReference from '@scalar/fastify-api-reference'
+import 'dotenv/config'
 import Fastify from 'fastify'
 import type { ZodTypeProvider } from 'fastify-type-provider-zod'
 import {
@@ -10,7 +9,8 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
-
+import * as z from 'zod'
+import { WeekDay } from './generated/prisma/enums.js'
 import { auth } from './lib/auth.js'
 
 const app = Fastify({
@@ -74,6 +74,61 @@ await app.register(fastifyCors, {
 
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
+
+app.withTypeProvider<ZodTypeProvider>().route({
+  method: 'POST',
+  url: '/workout-plans',
+  schema: {
+    body: z.object({
+      name: z.string().trim().min(1),
+      workoutDays: z.array(
+        z.object({
+          name: z.string().trim().min(1),
+          weekDay: z.enum(WeekDay),
+          isRest: z.boolean().default(false),
+          estimatedDurationInSeconds: z.number().min(1),
+          exercises: z.array(
+            z.object({
+              order: z.number().min(0),
+              name: z.string().trim().min(1),
+              sets: z.number().min(1),
+              reps: z.number().min(1),
+              restTimeInSeconds: z.number().min(1),
+            }),
+          ),
+        }),
+      ),
+    }),
+    response: {
+      201: z.object({
+        id: z.uuid(),
+        name: z.string().trim().min(1),
+        workoutDays: z.array(
+          z.object({
+            name: z.string().trim().min(1),
+            weekDay: z.enum(WeekDay),
+            isRest: z.boolean().default(false),
+            estimatedDurationInSeconds: z.number().min(1),
+            exercises: z.array(
+              z.object({
+                order: z.number().min(0),
+                name: z.string().trim().min(1),
+                sets: z.number().min(1),
+                reps: z.number().min(1),
+                restTimeInSeconds: z.number().min(1),
+              }),
+            ),
+          }),
+        ),
+      }),
+      400: z.object({
+        error: z.string(),
+        code: z.string(),
+      }),
+    },
+  },
+  handler: async (request, reply) => {},
+})
 
 app.withTypeProvider<ZodTypeProvider>().route({
   method: 'GET',
