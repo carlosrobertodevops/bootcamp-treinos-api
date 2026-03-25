@@ -1,7 +1,7 @@
 {
-	"recommendations": [
-		"ms-toolsai.datawrangler",
-		"tdsrmd.shadcn-ui-snippets",
-		"themeselection.shadcn-studio-vscode-extension"
-	]
+  "recommendations": [
+    "ms-toolsai.datawrangler",
+    "tdsrmd.shadcn-ui-snippets",
+    "themeselection.shadcn-studio-vscode-extension"
+  ]
 }

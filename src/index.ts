@@ -42,10 +42,6 @@ await app.register(fastifySwagger, {
   transform: jsonSchemaTransform,
 })
 
-// await app.register(fastifySwaggerUi, {
-//   routePrefix: '/docs',
-// })
-
 await app.register(fastifyApiReference, {
   routePrefix: '/docs',
   configuration: {

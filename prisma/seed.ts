@@ -77,7 +77,8 @@ async function main() {
                   isRest: false,
                   weekDay: WeekDay.MONDAY,
                   estimatedDurationInSeconds: 3600,
-                  coverImageUrl: 'https://via.placeholder.com/1200x630.png?text=Treino+A',
+                  coverImageUrl:
+                    'https://via.placeholder.com/1200x630.png?text=Treino+A',
                   createdAt: new Date(),
                   updatedAt: new Date(),
                   exercises: {

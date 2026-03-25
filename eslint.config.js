@@ -1,8 +1,8 @@
 import js from '@eslint/js'
-import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import importPlugin from 'eslint-plugin-import'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -19,7 +19,10 @@ export default defineConfig([
     languageOptions: {
       globals: globals.node,
     },
+    // extends: ['js/recommended'],
+    extends: ['eslint:recommended', 'prettier'],
     plugins: {
+      js,
       import: importPlugin,
       'simple-import-sort': simpleImportSort,
     },
